@@ -18,7 +18,7 @@ public static class Arrays
         for (int i = 0; i < length; i++)
         {
             // Step 3: For each index, the value will be 'number' multiplied by (i + 1)
-            multiples[i] = number * (i + 1); // This gives us the multiples.
+            multiples[i] = number * (i + 1); 
         }
 
         // Step 4: Return the filled array of multiples.
@@ -35,17 +35,17 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // Step 1: Ensure that the rotation amount is within the valid range (1 to data.Count).
-        amount = amount % data.Count; // If amount exceeds data.Count, only rotate by the remainder.
+        amount = amount % data.Count;
 
         // Step 2: Slice the list into two parts.
         // - 'rightPart' contains the last 'amount' elements of the list.
         // - 'leftPart' contains the remaining elements of the list.
-        List<int> rightPart = data.GetRange(data.Count - amount, amount); // Get last 'amount' elements
-        List<int> leftPart = data.GetRange(0, data.Count - amount); // Get the rest of the list
+        List<int> rightPart = data.GetRange(data.Count - amount, amount);
+        List<int> leftPart = data.GetRange(0, data.Count - amount);
 
         // Step 3: Clear the original list and add the parts in the correct order.
-        data.Clear(); // Clear the existing data in the list.
-        data.AddRange(rightPart); // Add the 'rightPart' (the last 'amount' elements) at the front.
-        data.AddRange(leftPart); // Add the 'leftPart' (the remaining elements) after the 'rightPart'.
+        data.Clear();
+        data.AddRange(rightPart);
+        data.AddRange(leftPart);
     }
 }
