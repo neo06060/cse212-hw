@@ -9,7 +9,7 @@ public class TakingTurnsQueueTests
 {
     [TestMethod]
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3) and
-    // run until the queue is empty
+    // run until the queue is empty.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
     // Defect(s) Found: 
     public void TestTakingTurnsQueue_FiniteRepetition()
@@ -18,7 +18,7 @@ public class TakingTurnsQueueTests
         var tim = new Person("Tim", 5);
         var sue = new Person("Sue", 3);
 
-        Person[] expectedResult = [bob, tim, sue, bob, tim, sue, tim, sue, tim, tim];
+        Person[] expectedResult = { bob, tim, sue, bob, tim, sue, tim, sue, tim, tim };
 
         var players = new TakingTurnsQueue();
         players.AddPerson(bob.Name, bob.Turns);
@@ -41,7 +41,7 @@ public class TakingTurnsQueueTests
 
     [TestMethod]
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3)
-    // After running 5 times, add George with 3 turns.  Run until the queue is empty.
+    // After running 5 times, add George with 3 turns. Run until the queue is empty.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, George, Sue, Tim, George, Tim, George
     // Defect(s) Found: 
     public void TestTakingTurnsQueue_AddPlayerMidway()
@@ -51,7 +51,7 @@ public class TakingTurnsQueueTests
         var sue = new Person("Sue", 3);
         var george = new Person("George", 3);
 
-        Person[] expectedResult = [bob, tim, sue, bob, tim, sue, tim, george, sue, tim, george, tim, george];
+        Person[] expectedResult = { bob, tim, sue, bob, tim, sue, tim, george, sue, tim, george, tim, george };
 
         var players = new TakingTurnsQueue();
         players.AddPerson(bob.Name, bob.Turns);
@@ -94,7 +94,7 @@ public class TakingTurnsQueueTests
         var tim = new Person("Tim", timTurns);
         var sue = new Person("Sue", 3);
 
-        Person[] expectedResult = [bob, tim, sue, bob, tim, sue, tim, sue, tim, tim];
+        Person[] expectedResult = { bob, tim, sue, bob, tim, sue, tim, sue, tim, tim };
 
         var players = new TakingTurnsQueue();
         players.AddPerson(bob.Name, bob.Turns);
@@ -123,7 +123,7 @@ public class TakingTurnsQueueTests
         var tim = new Person("Tim", timTurns);
         var sue = new Person("Sue", 3);
 
-        Person[] expectedResult = [tim, sue, tim, sue, tim, sue, tim, tim, tim, tim];
+        Person[] expectedResult = { tim, sue, tim, sue, tim, sue, tim, tim, tim, tim };
 
         var players = new TakingTurnsQueue();
         players.AddPerson(tim.Name, tim.Turns);
