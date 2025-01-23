@@ -15,16 +15,15 @@ public class Translator
 
     /// <summary>
     /// Add the translation from 'from_word' to 'to_word'
-    /// For example, in a english to german dictionary:
+    /// For example, in an English-to-German dictionary:
     /// 
-    /// my_translator.AddWord("book","buch")
+    /// my_translator.AddWord("book", "buch")
     /// </summary>
     /// <param name="fromWord">The word to translate from</param>
     /// <param name="toWord">The word to translate to</param>
-    /// <returns>fixed array of divisors</returns>
     public void AddWord(string fromWord, string toWord)
     {
-        // ADD YOUR CODE HERE
+        _words[fromWord] = toWord; // Add or update the translation
     }
 
     /// <summary>
@@ -34,7 +33,7 @@ public class Translator
     /// <returns>The translated word or "???" if no translation is available</returns>
     public string Translate(string fromWord)
     {
-        // ADD YOUR CODE HERE
-        return "";
+        // Try to get the translation; if it doesn't exist, return "???"
+        return _words.TryGetValue(fromWord, out var translation) ? translation : "???";
     }
 }
