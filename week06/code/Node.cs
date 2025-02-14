@@ -1,45 +1,49 @@
 public class Node
 {
-    public int Data { get; set; }
-    public Node? Right { get; private set; }
+    public int Value { get; set; }
     public Node? Left { get; private set; }
+    public Node? Right { get; private set; }
 
     public Node(int data)
     {
-        this.Data = data;
+        Value = data;  
+        Left = null;
+        Right = null;
     }
 
     public void Insert(int value)
     {
-        // TODO Start Problem 1
-
-        if (value < Data)
+        if (value < Value)
         {
-            // Insert to the left
-            if (Left is null)
+            if (Left == null)
                 Left = new Node(value);
             else
                 Left.Insert(value);
         }
-        else
+        else if (value > Value) // Prevents duplicate values
         {
-            // Insert to the right
-            if (Right is null)
+            if (Right == null)
                 Right = new Node(value);
             else
                 Right.Insert(value);
         }
+        // No action is taken if value == Value, so duplicates are ignored
     }
 
     public bool Contains(int value)
     {
-        // TODO Start Problem 2
-        return false;
+        if (value == Value)
+            return true;
+        else if (value < Value)
+            return Left?.Contains(value) ?? false;
+        else
+            return Right?.Contains(value) ?? false;
     }
 
     public int GetHeight()
     {
-        // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        int leftHeight = Left?.GetHeight() ?? 0;
+        int rightHeight = Right?.GetHeight() ?? 0;
+        return 1 + Math.Max(leftHeight, rightHeight); // The height is 1 + the largest subtree height
     }
 }
